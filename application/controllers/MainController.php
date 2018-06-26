@@ -7,11 +7,11 @@ class MainController extends Controller
 {
 	public function indexAction()
 	{
-		$result = $this->model->getNews();
-		$vars = [
-			'news' => $result,
-		];
-		$this->view->render('Главная страница', $vars);
+        $vars = [
+            'task' => $this->model->getTask($this->route),
+            'comments' => $this->model->getComments($this->route),
+        ];
+        $this->view->render('Список задач', $vars);
 	}
 
 }

@@ -1,12 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ru">
 <head>
-	<meta charset="UTF-8">
-	<title><?php echo $title; ?></title>
-	<script src="/public/scripts/jquery.js"></script>
-	<script src="/public/scripts/form.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/public/css/style.css" rel="stylesheet">
+
+    <title><?=$title;?></title>
 </head>
 <body>
-	<?php echo $content; ?>
+<section class="main-slogan">
+    <div class="container">
+        <h1>Список задач</h1>
+    </div>
+</section>
+
+<?=$content;?>
+
+<!-- Bootstrap CSS -->
+<script src="/public/js/bootstrap.min.js"></script>
 </body>
 </html>
