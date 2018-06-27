@@ -9,11 +9,11 @@ class Main extends Model
 	
 	public function getTask()
 	{
-		$result = $this->db->row('SELECT name, status FROM task');
+		$result = $this->db->row('SELECT name, status FROM task ORDER BY id DESC');
 		return $result;
 	}
 
-    public function taskValidate($post, $type)
+    public function taskValidate($post)
     {
         $nameLen = iconv_strlen($post['name']);
         if ($nameLen < 3 or $nameLen > 100){
@@ -26,13 +26,11 @@ class Main extends Model
     public function taskAdd($post)
     {
         $params = [
-            //'id' => '',
             'id' => '',
             'name' => $post['name'],
-            'status' => '',
-            //'status' => $post['status'],
+            'status' => $post['status'],
         ];
-        $this->db->query('INSERT INTO task VALUES (:name)', $params);
+        $this->db->query('INSERT INTO task VALUES (:id, :name, :status)', $params);
         return $this->db->lastInsertId();
     }
 }

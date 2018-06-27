@@ -14,7 +14,7 @@
 <body>
 <section class="main-slogan">
     <div class="container">
-        <h1>Список задач</h1>
+        <a href="/"><h1>Список задач</h1></a>
     </div>
 </section>
 
@@ -22,5 +22,7 @@
 
 <!-- Bootstrap CSS -->
 <script src="/public/js/bootstrap.min.js"></script>
+<script src="/public/scripts/jquery.js"></script>
+<script src="/public/scripts/form.js"></script>
 </body>
 </html>
