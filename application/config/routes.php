@@ -6,5 +6,10 @@ return [
 		'action' => 'index',
 	],
 
+    'add' => [
+        'controller' => 'main',
+        'action' => 'add',
+    ],
+
 
 ];

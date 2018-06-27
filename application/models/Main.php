@@ -13,9 +13,26 @@ class Main extends Model
 		return $result;
 	}
 
-    public function getComments($comments)
+    public function taskValidate($post, $type)
     {
-        $result = $this->db->row('SELECT COUNT(*) FROM comments WHERE id_task = $comments');
-        return $result;
+        $nameLen = iconv_strlen($post['name']);
+        if ($nameLen < 3 or $nameLen > 100){
+            $this->error = 'Название должно содержать от 3 до 100 символов';
+            return false;
+        }
+        return true;
+    }
+
+    public function taskAdd($post)
+    {
+        $params = [
+            //'id' => '',
+            'id' => '',
+            'name' => $post['name'],
+            'status' => '',
+            //'status' => $post['status'],
+        ];
+        $this->db->query('INSERT INTO task VALUES (:name)', $params);
+        return $this->db->lastInsertId();
     }
 }

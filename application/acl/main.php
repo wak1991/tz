@@ -4,6 +4,7 @@ return [
 
 	'all' => [
         'index',
+        'add',
 		],
 	'authorize' => [
 			//
