@@ -5,6 +5,8 @@ return [
 	'all' => [
         'index',
         'add',
+        'edit',
+        'api',
 		],
 	'authorize' => [
 			//

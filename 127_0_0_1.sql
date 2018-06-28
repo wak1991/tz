@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Июн 26 2018 г., 16:46
+-- Время создания: Июн 28 2018 г., 15:17
 -- Версия сервера: 5.6.37
 -- Версия PHP: 5.6.31
 
@@ -41,10 +41,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `id_task`, `text`) VALUES
-(1, 1, 'Задача создана'),
-(2, 1, 'Задача выполнена'),
-(3, 2, 'Задача в работе'),
-(4, 2, 'Задача завершена');
+(1, 4, '1 комментарий'),
+(2, 4, '2 комментарий'),
+(3, 1, '1 комментарий'),
+(4, 3, '1 комментарий'),
+(5, 3, '2 комментарий'),
+(6, 3, '3 комментарий');
 
 -- --------------------------------------------------------
 
@@ -63,13 +65,12 @@ CREATE TABLE `task` (
 --
 
 INSERT INTO `task` (`id`, `name`, `status`) VALUES
-(1, 'Вёрстка', 'todo'),
-(2, 'Серверная часть', 'doing'),
-(3, 'Api', 'done'),
-(4, 'Java skripts', 'todo'),
-(5, 'Ajax', 'doing'),
-(6, 'Json', 'doing'),
-(7, 'PHP', 'done');
+(1, 'PHP', 'done'),
+(2, 'HTML', 'todo'),
+(3, 'JavaScript', 'todo'),
+(4, 'GIT', 'doing'),
+(5, 'OOP', 'doing'),
+(6, 'MySQL', 'doing');
 
 --
 -- Индексы сохранённых таблиц
@@ -95,12 +96,12 @@ ALTER TABLE `task`
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT для таблицы `task`
 --
 ALTER TABLE `task`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

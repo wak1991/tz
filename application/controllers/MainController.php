@@ -13,6 +13,14 @@ class MainController extends Controller
         $this->view->render('Список задач', $vars);
 	}
 
+    public function apiAction()
+    {
+        $vars = [
+            'task' => $this->model->getApi($this->route),
+        ];
+        $this->view->render('Список задач Api', $vars);
+    }
+
     public function addAction()
     {
         if(!empty($_POST)){
@@ -30,13 +38,25 @@ class MainController extends Controller
 
     public function editAction()
     {
+        if (!$this->model->isTaskExists($this->route['id'])){
+            $this->view->errorCode(404);
+        }
+
         if(!empty($_POST)){
-            if (!$this->model->postValidate($_POST, 'edit')){
+            if (!$this->model->taskValidate($_POST, 'edit')){
                 $this->view->message('error', $this->model->error);
             }
-            $this->view->message('success', 'OK');
+            $this->model->taskEdit($_POST, $this->route['id']);
+            $this->model->commentsAdd($_POST, $this->route['id']);
+            $this->view->location('/edit/' . $this->route['id']);
+            $this->view->message('success', 'Сохранено');
+
         }
-        $this->view->render('Редактировать задачу');
+        $vars = [
+            'data' => $this->model->taskData($this->route['id'])[0],
+            'data_comments' => $this->model->commentsData($this->route['id']),
+        ];
+        $this->view->render('Редактировать задачу', $vars);
     }
 
 }
